@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    CHORA POS is a point of sales application designed for touch screens.
+    Copyright (C) 2010 CHORA INFORMATIQUE, SARL.
+    http://www.choranet.com
+ -->
+<output>
+     
+    <display>
+        <line>
+            #if ($ticketline.isProductCom()) 
+                <text align="left" length="15">*${ticketline.printName()}</text>
+            #else
+                 <text align="left" length="15">${ticketline.printName()}</text>
+            #end
+            <text align="right" length="5">x${ticketline.printMultiply()}</text>
+        </line>
+        <line>
+            <text align="right" length="10">${ticketline.printPrice()}</text>
+            <text align="right" length="10">${ticketline.printSubValue()}</text>
+        </line>
+    </display>
+    
+</output>

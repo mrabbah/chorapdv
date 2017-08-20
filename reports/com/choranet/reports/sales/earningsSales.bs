@@ -1,0 +1,47 @@
+//    CHORA POS is a point of sales application designed for touch screens.
+//    Copyright (C) 2010-2011 CHORA INFORMATIQUE, SARL.
+//    http://www.choranet.com
+
+report = new com.choranet.pos.reports.PanelReportBean();
+
+report.setTitleKey("Menu.earningsSales");
+report.setReport("/com/choranet/reports/sales/earningsSales");
+report.setResourceBundle("com/choranet/reports/sales/earningsSales_messages");
+
+
+report.setSentence("SELECT CATEGORIES.NAME AS CATNAME, PRODUCTS.NAME AS PRODUCT, SUM(TICKETLINES.UNITS) AS UNITS, " +
+                     "(products.pricesell - products.pricebuy) as MARGE, RECEIPTS.DATENEW, " +
+                     "(SUM(TICKETLINES.UNITS) * (products.pricesell - products.pricebuy)) as TOTAL, " +
+                     "RESOURCES.CONTENT AS USEDBYLOGO " +
+                     "FROM RECEIPTS, TICKETS, TICKETLINES, PRODUCTS, CATEGORIES, RESOURCES " +
+                     "WHERE RECEIPTS.ID = TICKETS.ID AND TICKETS.ID = TICKETLINES.TICKET " +
+                     "AND   TICKETLINES.PRODUCT = PRODUCTS.ID AND CATEGORIES.ID = PRODUCTS.CATEGORY " +
+                     "AND RESOURCES.NAME = 'usedby_logo' AND ?(QBF_FILTER) " +
+                     "GROUP BY PRODUCTS.REFERENCE, PRODUCTS.NAME " +
+                     "ORDER BY MARGE ASC");
+
+
+report.addParameter("STOCKDIARY.DATENEW");
+report.addParameter("STOCKDIARY.DATENEW");
+report.addQBFFilter(new com.choranet.pos.reports.JParamsDatesInterval());
+
+//report.addParameter("suppliers.id");
+//report.addParameter("suppliers.name");
+//report.addQBFFilter(new com.choranet.pos.reports.JParamsSupplier());
+
+report.addParameter("products.id");
+report.addParameter("products.name");
+report.addQBFFilter(new com.choranet.pos.reports.JParamsProduct());
+
+//report.addField("ID", com.choranet.data.loader.Datas.STRING);
+//report.addField("REASON", com.choranet.data.loader.Datas.INT);
+//report.addField("LOCATION", com.choranet.data.loader.Datas.STRING);
+report.addField("CATNAME", com.choranet.data.loader.Datas.STRING);
+report.addField("PRODUCT", com.choranet.data.loader.Datas.STRING);
+report.addField("UNITS", com.choranet.data.loader.Datas.DOUBLE);
+report.addField("MARGE", com.choranet.data.loader.Datas.DOUBLE);
+report.addField("DATENEW", com.choranet.data.loader.Datas.TIMESTAMP);
+report.addField("TOTAL", com.choranet.data.loader.Datas.DOUBLE);
+report.addField("USEDBYLOGO", com.choranet.data.loader.Datas.IMAGE);
+
+report;

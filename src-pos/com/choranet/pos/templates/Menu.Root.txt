@@ -1,0 +1,68 @@
+//    CHORA POS is a point of sales application designed for touch screens.
+//    Copyright (C) 2010-2011 CHORA INFORMATIQUE, SARL.
+//    http://www.choranet.com
+
+    group = menu.addGroup("Menu.Main");
+    group.addPanel("/com/choranet/images/mycomputer.png", "Menu.Ticket", "com.choranet.pos.sales.JPanelTicketSales");
+    group.addPanel("/com/choranet/images/mycomputer.png", "Menu.TicketEdit", "com.choranet.pos.sales.JPanelTicketEdits");
+    group.addPanel("/com/choranet/images/kdmconfig.png", "Menu.CustomersPayment", "com.choranet.pos.customers.CustomersPayment");
+    group.addPanel("/com/choranet/images/mycomputer.png", "Menu.Payments", "com.choranet.pos.panels.JPanelPayments");
+    group.addPanel("/com/choranet/images/mycomputer.png", "Menu.CloseTPV", "com.choranet.pos.panels.JPanelCloseMoney");
+    group.addPanel("/com/choranet/images/appointment.png", "Menu.Closing", "/com/choranet/reports/closedpos.bs");
+
+    group = menu.addGroup("Menu.Backoffice");
+    submenu = group.addSubmenu("/com/choranet/images/contents.png", "Menu.Customers", "com.choranet.pos.forms.MenuCustomers");
+        submenu.addTitle("Menu.Customers");
+        submenu.addPanel("/com/choranet/images/kdmconfig.png", "Menu.CustomersManagement", "com.choranet.pos.customers.CustomersPanel");
+        submenu.addTitle("Menu.Customers.Reports");
+        submenu.addPanel("/com/choranet/images/appointment.png", "Menu.CustomersReport", "/com/choranet/reports/customers.bs");
+        submenu.addPanel("/com/choranet/images/appointment.png", "Menu.CustomersBReport", "/com/choranet/reports/customersb.bs");
+        submenu.addPanel("/com/choranet/images/appointment.png", "Menu.CustomersDiary", "/com/choranet/reports/customersdiary.bs");
+
+    submenu = group.addSubmenu("/com/choranet/images/contents.png", "Menu.SalesManagement", "com.choranet.pos.forms.MenuSalesManagement");
+        submenu.addTitle("Menu.SalesManagement.Reports");
+        submenu.addPanel("/com/choranet/images/appointment.png", "Menu.UserSells", "/com/choranet/reports/usersales.bs");
+        submenu.addPanel("/com/choranet/images/appointment.png", "Menu.ClosedProducts", "/com/choranet/reports/closedproducts.bs");
+        submenu.addPanel("/com/choranet/images/appointment.png", "Menu.ReportTaxes", "/com/choranet/reports/taxes.bs");
+        submenu.addPanel("/com/choranet/images/appointment.png", "Menu.EarningsSalesReport", "/com/choranet/reports/sales/earningsSales.bs");
+        submenu.addPanel("/com/choranet/images/cakes3d.png", "Menu.SalesChart", "/com/choranet/reports/chartsales.bs");
+        submenu.addPanel("/com/choranet/images/cakes3d.png", "Menu.ProductSales", "/com/choranet/reports/productsales.bs");
+
+    submenu = group.addSubmenu("/com/choranet/images/contents.png", "Menu.StockManagement", "com.choranet.pos.forms.MenuStockManagement");
+        submenu.addTitle("Menu.StockManagement.Edit");
+        submenu.addPanel("/com/choranet/images/bookmark.png", "Menu.Products", "com.choranet.pos.inventory.ProductsPanel");
+        submenu.addPanel("/com/choranet/images/bookmark.png", "Menu.ProductsWarehouse", "com.choranet.pos.inventory.ProductsWarehousePanel");
+        submenu.addPanel("/com/choranet/images/bookmark.png", "Menu.Auxiliar", "com.choranet.pos.inventory.AuxiliarPanel");
+        submenu.addPanel("/com/choranet/images/bookmark.png", "Menu.Categories", "com.choranet.pos.inventory.CategoriesPanel");
+        submenu.addPanel("/com/choranet/images/bookmark.png", "Menu.Taxes", "com.choranet.pos.inventory.TaxPanel");
+        submenu.addPanel("/com/choranet/images/bookmark.png", "Menu.TaxCategories", "com.choranet.pos.inventory.TaxCategoriesPanel");
+        submenu.addPanel("/com/choranet/images/bookmark.png", "Menu.TaxCustCategories", "com.choranet.pos.inventory.TaxCustCategoriesPanel");
+        submenu.addPanel("/com/choranet/images/bookmark.png", "Menu.StockDiary", "com.choranet.pos.inventory.StockDiaryPanel");
+        submenu.addPanel("/com/choranet/images/bookmark.png", "Menu.StockMovement", "com.choranet.pos.inventory.StockManagement");
+        submenu.addTitle("Menu.StockManagement.Reports");
+        submenu.addPanel("/com/choranet/images/appointment.png", "Menu.Products", "/com/choranet/reports/products.bs");
+        submenu.addPanel("/com/choranet/images/appointment.png", "Menu.ProductLabels", "/com/choranet/reports/productlabels.bs");
+        submenu.addPanel("/com/choranet/images/appointment.png", "Menu.Catalog", "/com/choranet/reports/productscatalog.bs");
+        submenu.addPanel("/com/choranet/images/appointment.png", "Menu.Inventory", "/com/choranet/reports/inventory.bs");
+        submenu.addPanel("/com/choranet/images/appointment.png", "Menu.Inventory2", "/com/choranet/reports/inventoryb.bs");
+        submenu.addPanel("/com/choranet/images/appointment.png", "Menu.InventoryBroken", "/com/choranet/reports/inventorybroken.bs");
+        submenu.addPanel("/com/choranet/images/appointment.png", "Menu.InventoryDiff", "/com/choranet/reports/inventorydiff.bs");
+
+    submenu = group.addSubmenu("/com/choranet/images/contents.png", "Menu.Maintenance", "com.choranet.pos.forms.MenuMaintenance");
+        submenu.addTitle("Menu.Maintenance.POS");
+        submenu.addPanel("/com/choranet/images/kdmconfig.png", "Menu.Users", "com.choranet.pos.admin.PeoplePanel");
+        submenu.addPanel("/com/choranet/images/yast_group_add.png", "Menu.Roles", "com.choranet.pos.admin.RolesPanel");
+        submenu.addPanel("/com/choranet/images/clipart.png", "Menu.Resources", "com.choranet.pos.admin.ResourcesPanel");
+        submenu.addPanel("/com/choranet/images/gohome.png", "Menu.Locations", "com.choranet.pos.inventory.LocationsPanel");
+        submenu.addPanel("/com/choranet/images/bookmark.png", "Menu.Floors", "com.choranet.pos.mant.JPanelFloors");
+        submenu.addPanel("/com/choranet/images/bookmark.png", "Menu.Tables", "com.choranet.pos.mant.JPanelPlaces");
+        submenu.addTitle("Menu.Maintenance.Reports");
+        submenu.addPanel("/com/choranet/images/appointment.png", "Menu.UsersReport", "/com/choranet/reports/people.bs");
+        submenu.addTitle("Menu.Maintenance.ERP");
+        submenu.addExecution("/com/choranet/images/choranet.png", "Menu.ERPProducts", "com.choranet.possync.ProductsSyncCreate");
+        submenu.addExecution("/com/choranet/images/choranet.png", "Menu.ERPOrders", "com.choranet.possync.OrdersSyncCreate");
+    group = menu.addGroup("Menu.System");
+    group.addChangePasswordAction();
+    group.addPanel("/com/choranet/images/package_settings.png", "Menu.Configuration", "com.choranet.pos.config.JPanelConfiguration");
+    group.addPanel("/com/choranet/images/fileprint.png", "Menu.Printer", "com.choranet.pos.panels.JPanelPrinter");
+    group.addExitAction();

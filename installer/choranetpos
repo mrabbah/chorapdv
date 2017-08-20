@@ -1,0 +1,4 @@
+#!/bin/sh
+
+sh /opt/choranet-2.30/start.sh
+

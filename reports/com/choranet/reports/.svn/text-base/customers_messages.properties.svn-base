@@ -1,0 +1,10 @@
+#    CHORA POS is a point of sales application designed for touch screens.
+#    Copyright (C) 2010-2011 CHORA INFORMATIQUE, SARL.
+#    http://www.choranet.com
+
+label.title=Customers
+label.maxdebt=Max debt
+label.curdebt=Debt current
+label.curdate=Debt date
+label.notes=Notes
+label.taxid=Tax ID

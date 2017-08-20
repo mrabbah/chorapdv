@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    CHORA POS is a point of sales application designed for touch screens.
+    Copyright (C) 2010 CHORA INFORMATIQUE, SARL.
+    http://www.choranet.com
+ -->
+
+<output>
+    <ticket>
+        <image>Printer.Ticket.Logo</image>
+        <line></line>
+        <line>
+            <text align="center" length="42">exemple de reçu.</text>
+        </line>
+        <line>
+            <text align="center" length="42">Vous pouvez changer ce modèle</text>
+        </line>
+        <line>
+            <text align="center" length="42">dans le panneau des ressources</text>
+        </line>
+        <line></line>
+        <line>
+            <text>Date:     ${inventoryrecord.printDate()}</text>
+        </line>
+        <line>
+            <text>Motif:   ${inventoryrecord.printReason()}</text>
+        </line>
+        <line>
+            <text>Emplacement: ${inventoryrecord.printLocation()}</text>
+        </line>
+        <line size="1">
+            #if ($inventoryrecord.isInput())
+            <text align ="center" length="42">Entrée</text>
+            #else
+            <text align ="center" length="42">Sortie</text>
+            #end
+        </line>
+        
+        <line></line>    
+        <line>
+            <text align ="left" length="17">Article</text>
+            <text align ="right" length="10">Prix</text>
+            <text align ="right" length="5"></text>
+            <text align ="right" length="10">Valeur</text>
+        </line>      
+        <line>
+            <text>------------------------------------------</text>
+        </line>   
+        
+        #foreach ($inventoryline in $inventoryrecord.getLines())
+        <line>
+            <text align ="left" length="17">${inventoryline.printName()}</text>
+            <text align ="right" length="10">${inventoryline.printPrice()}</text>
+            <text align ="right" length="5">x${inventoryline.printMultiply()}</text>
+            <text align ="right" length="10">${inventoryline.printSubValue()}</text>
+        </line> 
+        #end
+        
+        <line>
+            <text>------------------------------------------</text>
+        </line>   
+        <line></line>            
+        <line>
+            <text align="center" length="42">Merci pour votre visite.</text>
+        </line>   
+    </ticket>
+    
+</output>

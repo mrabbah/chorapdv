@@ -1,0 +1,100 @@
+10
+
+dir
+90
+svn://10.10.0.9/chora_projets/chorapos/trunk/src-pos/com/choranet/pos
+svn://10.10.0.9/chora_projets
+
+
+
+2011-04-28T17:04:58.640498Z
+90
+mch
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+85497299-3097-4a10-9830-32a8a73eb50e
+
+panels
+dir
+
+ticket
+dir
+
+printer
+dir
+
+customers
+dir
+
+forms
+dir
+
+scripts
+dir
+
+scale
+dir
+
+admin
+dir
+
+comm
+dir
+
+inventory
+dir
+
+templates
+dir
+
+reports
+dir
+
+sql
+dir
+
+mant
+dir
+
+thirdparties
+dir
+
+scripting
+dir
+
+scanpal2
+dir
+
+instance
+dir
+
+config
+dir
+
+sales
+dir
+
+security
+dir
+
+catalog
+dir
+
+payment
+dir
+
+util
+dir
+

@@ -1,0 +1,18 @@
+//    CHORA POS is a point of sales application designed for touch screens.
+//    Copyright (C) 2010-2011 CHORA INFORMATIQUE, SARL.
+//    http://www.choranet.com
+
+// payment.addButton("banknote.500euro", 500.0);
+// payment.addButton("banknote.200euro", 200.0);
+// payment.addButton("banknote.100euro", 100.0);
+payment.addButton("deux_cents_dirhams", 200.0);
+payment.addButton("cent_dirhams", 100.0);
+payment.addButton("cinquante_dirhams", 50.0);
+payment.addButton("vignt_dirhams", 20.0);
+payment.addButton("dix_dirhams", 10.0);
+payment.addButton("5_dirham", 5.0);
+payment.addButton("deux_dirhams", 2);
+payment.addButton("1_dirham", 1);
+payment.addButton("0.5_dirham", 0.50);
+payment.addButton("vignt_centimes", 0.20);
+payment.addButton("10_centimes", 0.10);

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    CHORA POS is a point of sales application designed for touch screens.
+    Copyright (C) 2010 CHORA INFORMATIQUE, SARL.
+    http://www.choranet.com
+ -->
+ 
+<output>
+     
+    <display animation="scroll">
+        <line>
+            <text align="center" length="20">CHORA POS</text>
+        </line>
+        <line>
+            <text align="center" length="20">Bienvenue</text>
+        </line>
+    </display>
+</output>
+

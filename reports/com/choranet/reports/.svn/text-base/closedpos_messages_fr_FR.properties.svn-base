@@ -1,0 +1,45 @@
+#    CHORA POS is a point of sales application designed for touch screens.
+#    Copyright (C) 2010-2011 CHORA INFORMATIQUE, SARL.
+#    http://www.choranet.com
+
+label.title=Caisse cl\u00f4tur\u00e9e
+
+label.closedate=Dates de cl\u00f4tures
+
+label.partialtotal=Total
+
+label.total=Total
+
+label.partialtax=Taxes
+
+label.partialsubtotal=Sous-total
+
+label.tax=Taxes
+
+label.subtotal=Sous-total
+
+transpayment.cash=Esp\u00e8ces
+
+transpayment.magcard=Carte
+
+transpayment.cashrefund=Remboursements
+
+transpayment.magcardrefund=Carte remboursements
+
+transpayment.cheque=Ch\u00e8que
+
+transpayment.chequerefund=Ch\u00e8que remboursements
+
+transpayment.cashin=(entr\u00e9e) Esp\u00e8ces
+
+transpayment.cashout=(sortie) Esp\u00e8ces
+
+transpayment.free=Gratuit
+
+transpayment.ticket=Ticket
+
+transpayment.paperin=Note entr\u00e9e
+
+transpayment.paperout=Note sortie
+transpayment.debt=Cr\u00e9dit
+transpayment.debtpaid=Cr\u00e9dit pay\u00e9

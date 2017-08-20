@@ -1,0 +1,41 @@
+//    CHORA POS is a point of sales application designed for touch screens.
+//    Copyright (C) 2010-2011 CHORA INFORMATIQUE, SARL.
+//    http://www.choranet.com
+
+report = new com.choranet.pos.reports.PanelReportBean();
+
+report.setTitleKey("Menu.Closing");
+report.setReport("/com/choranet/reports/closedpos");
+report.setResourceBundle("com/choranet/reports/closedpos_messages");
+
+report.setSentence("SELECT " + 
+                    "CLOSEDCASH.HOST, " +
+                    "CLOSEDCASH.HOSTSEQUENCE, " +
+                    "CLOSEDCASH.MONEY, " +
+                    "CLOSEDCASH.DATESTART, " +
+                    "CLOSEDCASH.DATEEND, " +
+                    "PAYMENTS.PAYMENT, " +
+                    "SUM(PAYMENTS.TOTAL) AS TOTAL, " +
+                    "RESOURCES.CONTENT AS USEDBYLOGO " +
+                    "FROM CLOSEDCASH, PAYMENTS, RECEIPTS, RESOURCES " +
+                    "WHERE CLOSEDCASH.MONEY = RECEIPTS.MONEY AND PAYMENTS.RECEIPT = RECEIPTS.ID " +
+                    "AND RESOURCES.NAME = 'usedby_logo' AND ?(QBF_FILTER) " +
+                    "GROUP BY CLOSEDCASH.HOST, CLOSEDCASH.HOSTSEQUENCE, CLOSEDCASH.MONEY, CLOSEDCASH.DATESTART, CLOSEDCASH.DATEEND, PAYMENTS.PAYMENT " +
+                    "ORDER BY CLOSEDCASH.HOST, CLOSEDCASH.HOSTSEQUENCE");
+report.addParameter("CLOSEDCASH.DATEEND");
+report.addParameter("CLOSEDCASH.DATEEND");
+paramdates = new com.choranet.pos.reports.JParamsDatesInterval();
+paramdates.setStartDate(com.choranet.beans.DateUtils.getToday());
+report.addQBFFilter(paramdates);
+
+report.addField("HOST", com.choranet.data.loader.Datas.STRING);
+report.addField("SEQUENCE", com.choranet.data.loader.Datas.INT);
+report.addField("MONEY", com.choranet.data.loader.Datas.STRING);
+report.addField("DATESTART", com.choranet.data.loader.Datas.TIMESTAMP);
+report.addField("DATEEND", com.choranet.data.loader.Datas.TIMESTAMP);
+report.addField("PAYMENT", com.choranet.data.loader.Datas.STRING);
+report.addField("TOTAL", com.choranet.data.loader.Datas.DOUBLE);
+report.addField("USEDBYLOGO", com.choranet.data.loader.Datas.IMAGE);
+
+report;
+

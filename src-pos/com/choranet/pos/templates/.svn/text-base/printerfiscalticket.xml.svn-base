@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    CHORA POS is a point of sales application designed for touch screens.
+    Copyright (C) 2010 CHORA INFORMATIQUE, SARL.
+    http://www.choranet.com
+ -->
+ 
+<output>
+
+    <fiscalreceipt>
+        #foreach ($ticketline in $ticket.getLines())
+             #if ($ticketline.isProductCom()) 
+                 <line price="${ticketline.getValue()}" units="${ticketline.getModify()}">*${ticketline.printName()}</line>
+             #else
+                 <line price="${ticketline.getValue()}" units="${ticketline.getModify()}">${ticketline.printName()}</line>
+             #end
+        #end
+
+        <message>Items count: ${ticket.printArticlesCount()}</message>
+
+        #foreach ($paymentline in $ticket.payment)      
+         #if ($paymentline.name == "cash")
+            <total paid="${paymentline.getPaid()}">Cache</total>
+         #end
+         #if ($paymentline.name == "cashrefund")
+            <total paid="${paymentline.getTotal()}">Ristourne</total>
+         #end
+         #if ($paymentline.name == "magcard")
+            <total paid="${paymentline.getTotal()}">Mag card</total>  
+         #end  
+         #if ($paymentline.name == "magcardrefund")
+            <total paid="${paymentline.getTotal()}">Mag card Ristourne</total>
+         #end
+         #if ($paymentline.name == "cheque")
+            <total paid="${paymentline.getTotal()}">Chèque</total>
+         #end
+         #if ($paymentline.name == "chequerefund")
+            <total paid="${paymentline.getTotal()}">Chèque de ristourne</total>
+         #end
+        #end 
+    
+    </fiscalreceipt>
+    
+<!-- Other commands -->
+<!--
+    <fiscalzreport/>
+    <fiscalxreport/>
+-->    
+
+</output>

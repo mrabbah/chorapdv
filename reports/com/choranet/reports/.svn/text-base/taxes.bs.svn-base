@@ -1,0 +1,26 @@
+//    CHORA POS is a point of sales application designed for touch screens.
+//    Copyright (C) 2010-2011 CHORA INFORMATIQUE, SARL.
+//    http://www.choranet.com
+
+report = new com.choranet.pos.reports.PanelReportBean();
+
+report.setTitleKey("Menu.ReportTaxes");
+report.setReport("/com/choranet/reports/taxes");
+report.setResourceBundle("com/choranet/reports/taxes_messages");
+
+report.setSentence(
+                "SELECT TAXCATEGORIES.ID AS TAXID, TAXCATEGORIES.NAME AS TAXNAME, SUM(TAXLINES.AMOUNT) AS TOTALTAXES, RESOURCES.CONTENT AS USEDBYLOGO " +
+                "FROM RECEIPTS, TAXLINES, TAXES, TAXCATEGORIES, RESOURCES " +
+                "WHERE RECEIPTS.ID = TAXLINES.RECEIPT AND TAXLINES.TAXID = TAXES.ID AND TAXES.CATEGORY = TAXCATEGORIES.ID " +
+                "AND ?(QBF_FILTER) AND RESOURCES.NAME = 'usedby_logo' " +
+                "GROUP BY TAXCATEGORIES.ID,  TAXCATEGORIES.NAME");
+report.addParameter("RECEIPTS.DATENEW");
+report.addParameter("RECEIPTS.DATENEW");
+report.addQBFFilter(new com.choranet.pos.reports.JParamsDatesInterval());
+
+report.addField("TAXID", com.choranet.data.loader.Datas.STRING);
+report.addField("TAXNAME", com.choranet.data.loader.Datas.STRING);
+report.addField("TOTALTAXES", com.choranet.data.loader.Datas.DOUBLE);
+report.addField("USEDBYLOGO", com.choranet.data.loader.Datas.IMAGE);
+
+report;

@@ -1,0 +1,40 @@
+//    CHORA POS is a point of sales application designed for touch screens.
+//    Copyright (C) 2010-2011 CHORA INFORMATIQUE, SARL.
+//    http://www.choranet.com
+
+report = new com.choranet.pos.reports.PanelReportBean();
+
+report.setTitleKey("Menu.ProductSales");
+report.setReport("/com/choranet/reports/productsales");
+report.setResourceBundle("com/choranet/reports/productsales_messages");
+
+report.setSentence(
+            "SELECT " +
+            "PRODUCTS.REFERENCE, " +
+            "PRODUCTS.NAME, " +
+            "SUM(TICKETLINES.UNITS) AS UNITS, " +
+            "SUM(TICKETLINES.UNITS * TICKETLINES.PRICE) AS TOTAL, " +
+            "RESOURCES.CONTENT AS USEDBYLOGO " +
+            "FROM RECEIPTS, TICKETS, TICKETLINES, PRODUCTS, RESOURCES " +
+            "WHERE RECEIPTS.ID = TICKETS.ID AND TICKETS.ID = TICKETLINES.TICKET " +
+            "AND TICKETLINES.PRODUCT = PRODUCTS.ID AND RESOURCES.NAME = 'usedby_logo' AND ?(QBF_FILTER) " +
+            "GROUP BY PRODUCTS.REFERENCE, PRODUCTS.NAME " +
+            "ORDER BY PRODUCTS.NAME");
+report.addParameter("RECEIPTS.DATENEW");
+report.addParameter("RECEIPTS.DATENEW");
+report.addQBFFilter(new com.choranet.pos.reports.JParamsDatesInterval());
+report.addParameter("PRODUCTS.NAME");
+report.addParameter("PRODUCTS.PRICEBUY");
+report.addParameter("PRODUCTS.PRICESELL");
+report.addParameter("PRODUCTS.CATEGORY");
+report.addParameter("PRODUCTS.CODE");
+report.addQBFFilter(new com.choranet.pos.ticket.ProductFilter());
+
+report.addField("REFERENCE", com.choranet.data.loader.Datas.STRING);
+report.addField("NAME", com.choranet.data.loader.Datas.STRING);
+report.addField("UNITS", com.choranet.data.loader.Datas.DOUBLE);
+report.addField("TOTAL", com.choranet.data.loader.Datas.DOUBLE);
+report.addField("USEDBYLOGO", com.choranet.data.loader.Datas.IMAGE);
+
+report;
+

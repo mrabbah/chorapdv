@@ -1,0 +1,51 @@
+//    CHORA POS is a point of sales application designed for touch screens.
+//    Copyright (C) 2010-2011 CHORA INFORMATIQUE, SARL.
+//    http://www.choranet.com
+
+report = new com.choranet.pos.reports.PanelReportBean();
+
+report.setTitleKey("Menu.InventoryBroken");
+report.setReport("/com/choranet/reports/inventoryb");
+report.setResourceBundle("com/choranet/reports/inventoryb_messages");
+
+report.setSentence("SELECT " +
+                "STOCKCURRENT.LOCATION AS LOCATIONID, " +
+                "LOCATIONS.NAME AS LOCATIONNAME, " +
+                "PRODUCTS.REFERENCE, " +
+                "PRODUCTS.NAME AS NAME, " +
+                "PRODUCTS.CATEGORY, " +
+                "CATEGORIES.NAME AS CATEGORYNAME, " +
+                "STOCKCURRENT.UNITS, " +
+                "COALESCE(STOCKCURRENT.STOCKSECURITY, 0) AS STOCKSECURITY, " +
+                "COALESCE(STOCKCURRENT.STOCKMAXIMUM, 0) AS STOCKMAXIMUM, " +
+                "RESOURCES.CONTENT AS USEDBYLOGO " +
+                "FROM RESOURCES, STOCKCURRENT " +
+                "JOIN LOCATIONS ON STOCKCURRENT.LOCATION = LOCATIONS.ID " +
+                "JOIN PRODUCTS ON STOCKCURRENT.PRODUCT = PRODUCTS.ID " +
+                "JOIN CATEGORIES ON PRODUCTS.CATEGORY = CATEGORIES.ID " +
+                "WHERE COALESCE(STOCKCURRENT.STOCKSECURITY, 0) >= STOCKCURRENT.UNITS " +
+                "AND COALESCE(STOCKCURRENT.STOCKSECURITY, 0) > 0 " +
+                "AND RESOURCES.NAME = 'usedby_logo' AND ?(QBF_FILTER) " +
+                "ORDER BY CATEGORIES.NAME, PRODUCTS.NAME, STOCKCURRENT.LOCATION");
+report.addParameter("PRODUCTS.NAME");
+report.addParameter("PRODUCTS.PRICEBUY");
+report.addParameter("PRODUCTS.PRICESELL");
+report.addParameter("PRODUCTS.CATEGORY");
+report.addParameter("PRODUCTS.CODE");
+report.addQBFFilter(new com.choranet.pos.ticket.ProductFilter());
+report.addParameter("STOCKCURRENT.LOCATION");
+report.addQBFFilter(new com.choranet.pos.reports.JParamsLocationWithFirst());
+
+report.addField("LOCATIONID", com.choranet.data.loader.Datas.STRING);
+report.addField("LOCATIONNAME", com.choranet.data.loader.Datas.STRING);
+report.addField("REFERENCE", com.choranet.data.loader.Datas.STRING);
+report.addField("NAME", com.choranet.data.loader.Datas.STRING);
+report.addField("CATEGORY", com.choranet.data.loader.Datas.STRING);
+report.addField("CATEGORYNAME", com.choranet.data.loader.Datas.STRING);
+report.addField("UNITS", com.choranet.data.loader.Datas.DOUBLE);
+report.addField("STOCKSECURITY", com.choranet.data.loader.Datas.DOUBLE);
+report.addField("STOCKMAXIMUM", com.choranet.data.loader.Datas.DOUBLE);
+report.addField("USEDBYLOGO", com.choranet.data.loader.Datas.IMAGE);
+
+report;
+

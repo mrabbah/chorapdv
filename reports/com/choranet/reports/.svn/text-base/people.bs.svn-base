@@ -1,0 +1,28 @@
+//    CHORA POS is a point of sales application designed for touch screens.
+//    Copyright (C) 2010-2011 CHORA INFORMATIQUE, SARL.
+//    http://www.choranet.com
+
+report = new com.choranet.pos.reports.PanelReportBean();
+
+report.setTitleKey("Menu.UsersReport");
+report.setReport("/com/choranet/reports/people");
+report.setResourceBundle("com/choranet/reports/people_messages");
+
+if (app.getSession().getDatabaseName().equals("HSQL Database Engine") ||
+    app.getSession().getDatabaseName().equals("MySQL") ||
+    app.getSession().getDatabaseName().equals("PostgreSQL")) {
+    report.setSentence("SELECT PEOPLE.ID, PEOPLE.NAME, PEOPLE.CARD, ROLES.NAME AS ROLE, PEOPLE.IMAGE, RESOURCES.CONTENT AS USEDBYLOGO  " +
+                     "FROM PEOPLE, ROLES, RESOURCES WHERE PEOPLE.ROLE = ROLES.ID AND PEOPLE.VISIBLE = TRUE AND RESOURCES.NAME = 'usedby_logo'");
+} else if (app.getSession().getDatabaseName().equals("Oracle")) {
+    report  .setSentence("SELECT PEOPLE.ID, PEOPLE.NAME, PEOPLE.CARD, ROLES.NAME AS ROLE, PEOPLE.IMAGE " +
+                     "FROM PEOPLE, ROLES WHERE PEOPLE.ROLE = ROLES.ID AND PEOPLE.VISIBLE = 1");
+}
+
+report.addField("ID", com.choranet.data.loader.Datas.STRING);
+report.addField("NAME", com.choranet.data.loader.Datas.STRING);
+report.addField("CARD", com.choranet.data.loader.Datas.STRING);
+report.addField("ROLE", com.choranet.data.loader.Datas.STRING);
+report.addField("IMAGE", com.choranet.data.loader.Datas.IMAGE);
+report.addField("USEDBYLOGO", com.choranet.data.loader.Datas.IMAGE);
+
+report;

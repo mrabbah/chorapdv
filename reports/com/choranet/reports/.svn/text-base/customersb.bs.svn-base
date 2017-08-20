@@ -1,0 +1,36 @@
+//    CHORA POS is a point of sales application designed for touch screens.
+//    Copyright (C) 2010-2011 CHORA INFORMATIQUE, SARL.
+//    http://www.choranet.com
+
+report = new com.choranet.pos.reports.PanelReportBean();
+
+report.setTitleKey("Menu.CustomersBReport");
+report.setReport("/com/choranet/reports/customers");
+report.setResourceBundle("com/choranet/reports/customers_messages");
+
+if (app.getSession().getDatabaseName().equals("HSQL Database Engine") ||
+    app.getSession().getDatabaseName().equals("MySQL") ||
+    app.getSession().getDatabaseName().equals("PostgreSQL")) {
+    report.setSentence("SELECT CUSTOMERS.ID AS CustID, TAXID, CUSTOMERS.NAME AS CustName, ADDRESS, NOTES, " +
+                     "CARD, MAXDEBT, CURDATE, CURDEBT, RESOURCES.CONTENT AS USEDBYLOGO " +
+                     "FROM CUSTOMERS, RESOURCES " +
+                     "WHERE VISIBLE = TRUE AND CURDEBT IS NOT NULL AND CURDEBT > 0 AND RESOURCES.NAME = 'usedby_logo'");
+} else if (app.getSession().getDatabaseName().equals("Oracle")) {
+    report.setSentence("SELECT ID, TAXID, NAME, ADDRESS, NOTES, CARD, MAXDEBT, CURDATE, CURDEBT " +
+                     "FROM CUSTOMERS " +
+                     "WHERE VISIBLE = 1 AND CURDEBT IS NOT NULL AND CURDEBT > 0");
+}
+
+report.addField("CustID", com.choranet.data.loader.Datas.STRING);
+report.addField("TAXID", com.choranet.data.loader.Datas.STRING);
+report.addField("CustName", com.choranet.data.loader.Datas.STRING);
+report.addField("ADDRESS", com.choranet.data.loader.Datas.STRING);
+report.addField("NOTES", com.choranet.data.loader.Datas.STRING);
+report.addField("CARD", com.choranet.data.loader.Datas.STRING);
+report.addField("MAXDEBT", com.choranet.data.loader.Datas.DOUBLE);
+report.addField("CURDATE", com.choranet.data.loader.Datas.TIMESTAMP);
+report.addField("CURDEBT", com.choranet.data.loader.Datas.DOUBLE);
+report.addField("USEDBYLOGO", com.choranet.data.loader.Datas.IMAGE);
+
+report;
+

@@ -1,0 +1,39 @@
+#    CHORA POS is a point of sales application designed for touch screens.
+#    Copyright (C) 2010-2011 CHORA INFORMATIQUE, SARL.
+#    http://www.choranet.com
+
+message.jrerrorsaving=Erreur pendant la sauvegarde du document.
+
+message.jrerrorprinting=Erreur durant l'impression du rapport.
+
+message.jrerrorloading=Erreur pendant le chargement du rapport.
+
+message.jrerrorhyperlink=Une erreur s'est produite en suivant l'hyperlien.
+
+message.jrnopages=Le document comporte 0 pages.
+
+message.jrerrordisplaying=Erreur \u00e0 l'affichage de la page du rapport.
+label.jrsave=Sauvegarder
+
+label.jrprint=Imprimer
+
+
+label.jrreload=Recharger
+
+label.jractualsize=Taille r\u00e9elle
+
+label.jrfitsize=Ajuster \u00e0 l'ecran
+
+label.jrfitwidth=Ajuster \u00e0 la largeur
+
+label.jrzoomin=Agrandir
+
+label.jrzoomout=Reduire
+
+label.jrfirstpage=Premi\u00e8re page
+
+label.jrpreviouspage=Page pr\u00e9cedente
+
+label.jrnextpage=Page suivante
+
+label.jrlastpage=Derni\u00e8re page

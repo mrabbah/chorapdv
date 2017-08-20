@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    CHORA POS is a point of sales application designed for touch screens.
+    Copyright (C) 2010 CHORA INFORMATIQUE, SARL.
+    http://www.choranet.com
+ -->
+
+<permissions>
+    <class name="com.choranet.pos.sales.JPanelTicketSales"/>
+    <class name="com.choranet.pos.sales.JPanelTicketEdits"/>
+    <class name="com.choranet.pos.customers.CustomersPayment"/>
+    <class name="com.choranet.pos.panels.JPanelPayments"/>
+    <class name="com.choranet.pos.panels.JPanelCloseMoney"/>
+    <class name="/com/choranet/reports/closedpos.bs"/>
+
+    <class name="sales.EditLines"/>
+    <class name="sales.RefundTicket"/>
+    <class name="sales.PrintTicket"/>
+    <class name="sales.Total"/>
+
+    <class name="payment.cash"/>
+    <class name="payment.cheque"/>
+    <class name="payment.paper"/>
+    <class name="payment.magcard"/>
+    <class name="payment.free"/>
+    <class name="payment.debt"/>
+    <class name="refund.cash"/>
+    <class name="refund.cheque"/>
+    <class name="refund.paper"/>
+    <class name="refund.magcard"/>
+
+    <class name="com.choranet.pos.forms.MenuCustomers"/>
+    <class name="com.choranet.pos.customers.CustomersPanel"/>
+    <class name="/com/choranet/reports/customers.bs"/>
+    <class name="/com/choranet/reports/customersb.bs"/>
+    <class name="/com/choranet/reports/customersdiary.bs"/>
+    <class name="com.choranet.pos.inventory.TaxCustCategoriesPanel"/>
+
+    <class name="com.choranet.pos.forms.MenuStockManagement"/>
+    <class name="com.choranet.pos.inventory.ProductsPanel"/>
+    <class name="com.choranet.pos.inventory.ProductsWarehousePanel"/>
+    <class name="com.choranet.pos.inventory.CategoriesPanel"/>
+    <class name="com.choranet.pos.inventory.TaxPanel"/>
+    <class name="com.choranet.pos.inventory.TaxCategoriesPanel"/>
+    <class name="com.choranet.pos.inventory.StockDiaryPanel"/>
+    <class name="com.choranet.pos.inventory.StockManagement"/>
+    <class name="com.choranet.pos.inventory.AuxiliarPanel"/>
+    <class name="/com/choranet/reports/products.bs"/>
+    <class name="/com/choranet/reports/productlabels.bs"/>
+    <class name="/com/choranet/reports/productscatalog.bs"/>
+    <class name="/com/choranet/reports/inventory.bs"/>
+    <class name="/com/choranet/reports/inventoryb.bs"/>
+    <class name="/com/choranet/reports/inventorybroken.bs"/>
+    <class name="/com/choranet/reports/inventorydiff.bs"/>
+
+    <!--<class name="com.choranet.pos.forms.MenuSalesManagement"/>
+    <class name="/com/choranet/reports/usersales.bs"/>
+    <class name="/com/choranet/reports/closedproducts.bs"/>
+    <class name="/com/choranet/reports/taxes.bs"/>
+    <class name="/com/choranet/reports/chartsales.bs"/>
+    <class name="/com/choranet/reports/productsales.bs"/>
+    <class name="/com/choranet/reports/sales/earningsSales.bs"/>
+    -->
+
+    <class name="Menu.ChangePassword"/>
+
+    <class name="button.print"/>
+    <class name="button.opendrawer"/>
+
+</permissions>

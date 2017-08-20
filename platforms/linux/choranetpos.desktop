@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=CHORA POS
+GenericName=POS system
+Comment=CHORA POS is a point of sale application
+Exec=choranetpos %F
+Icon=choranetpos
+Type=Application
+Terminal=false
+Categories=Office;
+

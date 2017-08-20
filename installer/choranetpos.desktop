@@ -1,0 +1,15 @@
+[Desktop Entry]
+Version=2.20
+Encoding=UTF-8
+Name=CHORA POS
+Terminal=false
+Exec=choranetpos
+Icon=choranetpos
+Type=Application
+InitialPreference=6
+Categories=Application;Office;
+StartupNotify=false
+GenericName=CHORA POS
+Comment=CHORA POS is a point of sale designed for touch screens
+Name[en_US]=CHORA POS
+GenericName[en_US]=CHORA POS
